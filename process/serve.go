@@ -29,7 +29,7 @@ type TelegrammMessage struct {
 	message string
 }
 
-func HandleMessage(message []byte, env Env) {
+func HandleMessage(message []byte, env *Env) {
 	answer := ClientMessage{}
 	json.Unmarshal(message, &answer)
 	if answer.message.messageType != MessageType_Info {
