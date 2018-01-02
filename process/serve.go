@@ -1,7 +1,5 @@
 package process
 
-import "encoding/json"
-
 type messageType int32
 
 const (
@@ -27,13 +25,4 @@ type ClientMessage struct {
 
 type TelegrammMessage struct {
 	message string
-}
-
-func HandleMessage(message []byte, env *Env) {
-	answer := ClientMessage{}
-	json.Unmarshal(message, &answer)
-	if answer.message.messageType != MessageType_Info {
-		// send massage into telegram
-	}
-	// write to database
 }
